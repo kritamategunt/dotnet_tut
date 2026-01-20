@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EbktVqKCrSY=",
+  "success": true,
+  "projectFilePath": "/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/helloWorld.csproj",
+  "expectedPackageFiles": [
+    "/Users/kritamatekamheang/.nuget/packages/microsoft.netcore.app.ref/9.0.12/microsoft.netcore.app.ref.9.0.12.nupkg.sha512",
+    "/Users/kritamatekamheang/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.12/microsoft.aspnetcore.app.ref.9.0.12.nupkg.sha512",
+    "/Users/kritamatekamheang/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.12/microsoft.netcore.app.host.osx-arm64.9.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

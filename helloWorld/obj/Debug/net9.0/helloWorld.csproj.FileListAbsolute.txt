@@ -1,0 +1,14 @@
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net9.0/helloWorld
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net9.0/helloWorld.deps.json
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net9.0/helloWorld.runtimeconfig.json
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net9.0/helloWorld.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net9.0/helloWorld.pdb
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/helloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/helloWorld.AssemblyInfoInputs.cache
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/helloWorld.AssemblyInfo.cs
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/helloWorld.csproj.CoreCompileInputs.cache
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/helloWorld.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/refint/helloWorld.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/helloWorld.pdb
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/helloWorld.genruntimeconfig.cache
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net9.0/ref/helloWorld.dll
