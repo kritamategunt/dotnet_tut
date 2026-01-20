@@ -1,15 +1,20 @@
 namespace helloWorld.Models
 {
-    class Computer
+    public class Computer
     {
-        public string Motherboard { get; set; } = "";
-        public int CPUCores { get; set; }
-        public bool HasWifi { get; set; }
-        public bool HasLTE { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public decimal Price { get; set; }
-        public string VideoCard { get; set; } = "";
+        public int ComputerId { get; private set; }
+        public string Motherboard { get; private set; }
+        public int CPUCores { get; private set; }
+        public bool HasWifi { get; private set; }
+        public bool HasLTE { get; private set; }
+        public DateTime ReleaseDate { get; private set; }
+        public decimal Price { get; private set; }
+        public string? VideoCard { get; private set; }
 
+        // ✅ REQUIRED for Dapper
+        private Computer() { }
+
+        // ✅ Used by your application code
         public Computer(
             string motherboard,
             int cpuCores,
@@ -17,7 +22,7 @@ namespace helloWorld.Models
             bool hasLTE,
             DateTime releaseDate,
             decimal price,
-            string? videoCard = null)
+            string? videoCard)
         {
             Motherboard = motherboard;
             CPUCores = cpuCores;
@@ -28,4 +33,5 @@ namespace helloWorld.Models
             VideoCard = videoCard ?? "";
         }
     }
+
 }
