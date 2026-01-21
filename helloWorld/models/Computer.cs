@@ -11,6 +11,8 @@ namespace helloWorld.Models
         public decimal Price { get; private set; }
         public string? VideoCard { get; private set; }
 
+        public DateTime AddingDate { get;  set; }
+
         // ✅ REQUIRED for Dapper
         private Computer() { }
 
