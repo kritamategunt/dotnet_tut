@@ -1,6 +1,5 @@
 using System.Data;
 using Dapper;
-using helloWorld.Models;
 using Microsoft.Data.SqlClient;
 
 namespace helloWorld.Data
