@@ -36,7 +36,7 @@ namespace helloWorld.Data
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.AddingDate = DateTime.Now;
+                    entry.Property("AddingDate").CurrentValue = DateTime.Now;
                 }
             }
             return base.SaveChanges();

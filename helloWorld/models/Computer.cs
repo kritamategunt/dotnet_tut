@@ -2,35 +2,22 @@ namespace helloWorld.Models
 {
     public class Computer
     {
-        public int ComputerId { get; set; }
-        public string Motherboard { get; private set; }
-        public int? CPUCores { get; private set; }
+        // 🔑 Required by both EF & Dapper
+        public int ComputerId { get; private set; }
+
+        public string Motherboard { get; private set; } = "";
+        public int CPUCores { get; private set; }
         public bool HasWifi { get; private set; }
         public bool HasLTE { get; private set; }
         public DateTime ReleaseDate { get; private set; }
         public decimal Price { get; private set; }
-        public string? VideoCard { get; private set; }
+        public string VideoCard { get; private set; } = "";
+        public DateTime AddingDate { get; private set; }
 
-        public DateTime AddingDate { get; set; }
+        // ✅ REQUIRED for EF + Dapper
+        private Computer() { }
 
-        // ✅ REQUIRED for Dapper
-        private Computer()
-        {
-            if (Motherboard == null)
-            {
-                Motherboard = "";
-            }
-            if (VideoCard == null)
-            {
-                VideoCard = "";
-            }
-            if (CPUCores == null)
-            {
-                CPUCores = 0;
-            }
-        }
-
-        // ✅ Used by your application code
+        // ✅ Your domain constructor
         public Computer(
             string motherboard,
             int cpuCores,
@@ -38,7 +25,7 @@ namespace helloWorld.Models
             bool hasLTE,
             DateTime releaseDate,
             decimal price,
-            string? videoCard)
+            string videoCard)
         {
             Motherboard = motherboard;
             CPUCores = cpuCores;
@@ -46,8 +33,8 @@ namespace helloWorld.Models
             HasLTE = hasLTE;
             ReleaseDate = releaseDate;
             Price = price;
-            VideoCard = videoCard ?? "";
+            VideoCard = videoCard;
+            AddingDate = DateTime.UtcNow;
         }
     }
-
 }
