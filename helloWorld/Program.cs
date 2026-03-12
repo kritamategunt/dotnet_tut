@@ -4,6 +4,7 @@ using Dapper;
 using helloWorld.Data;
 using helloWorld.Models;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace helloWorld
 {
@@ -12,7 +13,11 @@ namespace helloWorld
         static void Main(string[] args)
         {
 
-            DataContextDapper dapper = new DataContextDapper();
+            IConfiguration configuration = new ConfigurationBuilder()
+            .AddJsonFile("appSetting.json")
+            .Build();
+
+            DataContextDapper dapper = new DataContextDapper(configuration);
 
             string sqlCommandText = "SELECT GETDATE()";
             DateTime currentServerTime = dapper.LoadDataSingle<DateTime>(sqlCommandText);
@@ -35,22 +40,22 @@ VALUES
 (@Motherboard, @CPUCores, @HasWifi, @HasLTE, @ReleaseDate, @Price, @VideoCard, @AddingDate);
 ";
 
-//             dapper.ExecuteSqlWithRowCount<Computer>(insertSql
-//                 .Replace("@Motherboard", $"'{myComputer.Motherboard}'")
-//                 .Replace("@CPUCores", myComputer.CPUCores.ToString())
-//                 .Replace("@HasWifi", myComputer.HasWifi ? "1" : "0")
-//                 .Replace("@HasLTE", myComputer.HasLTE ? "1" : "0")
-//                 .Replace("@ReleaseDate", $"'{myComputer.ReleaseDate:yyyy-MM-dd}'")
-//                 .Replace("@Price", myComputer.Price.ToString())
-//                 .Replace("@VideoCard", $"'{myComputer.VideoCard}'")
-//                 .Replace("@AddingDate", $"'{DateTime.Now:yyyy-MM-dd}'")
-//             );
+            //             dapper.ExecuteSqlWithRowCount<Computer>(insertSql
+            //                 .Replace("@Motherboard", $"'{myComputer.Motherboard}'")
+            //                 .Replace("@CPUCores", myComputer.CPUCores.ToString())
+            //                 .Replace("@HasWifi", myComputer.HasWifi ? "1" : "0")
+            //                 .Replace("@HasLTE", myComputer.HasLTE ? "1" : "0")
+            //                 .Replace("@ReleaseDate", $"'{myComputer.ReleaseDate:yyyy-MM-dd}'")
+            //                 .Replace("@Price", myComputer.Price.ToString())
+            //                 .Replace("@VideoCard", $"'{myComputer.VideoCard}'")
+            //                 .Replace("@AddingDate", $"'{DateTime.Now:yyyy-MM-dd}'")
+            //             );
 
 
             // Console.WriteLine("Rows affected: " + result);
 
 
-            DataContextEF entityFramework = new DataContextEF();
+            DataContextEF entityFramework = new DataContextEF(configuration);
             entityFramework.Add(myComputer);
             entityFramework.SaveChanges();
 
@@ -61,7 +66,7 @@ VALUES
             IEnumerable<Computer>? computersEF = entityFramework.Computer?.ToList();
 
 
-            Console.WriteLine("Computers in Database:"+computersEF?.Count());
+            Console.WriteLine("Computers in Database:" + computersEF?.Count());
             if (computersEF != null)
             {
                 foreach (var computer in computers)
@@ -69,9 +74,9 @@ VALUES
                     Console.WriteLine($"{computer.ComputerId}: {computer.Motherboard} - {computer.CPUCores} cores - ${computer.Price} Adding Date = {computer.AddingDate}");
                 }
             }
-            Console.WriteLine("Total Computers: " + computers.Count());        
+            Console.WriteLine("Total Computers: " + computers.Count());
 
-    
+
         }
     }
 }

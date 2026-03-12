@@ -1,13 +1,20 @@
 using System.Data;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace helloWorld.Data
 {
     public class DataContextDapper
     {
-
+        private readonly IConfiguration _config;
         private readonly string _connectionString = "Server=localhost;Database=DotNetCourseDatabase;TrustServerCertificate=True;Trusted_Connection=false;User Id=sa;Password=SQLConnect1!;";
+
+        public DataContextDapper(IConfiguration config)
+        {
+            _config = config;
+            _connectionString = _config.GetConnectionString("DefaultConnection");
+        }
 
         public IEnumerable<T> LoadData<T>(string sql)
         {
@@ -22,13 +29,13 @@ namespace helloWorld.Data
         public bool ExecuteCommand<T>(string sql)
         {
             IDbConnection dbConnection = new SqlConnection(_connectionString);
-            return (dbConnection.Execute(sql) > 0);
+            return dbConnection.Execute(sql) > 0;
         }
 
         public int ExecuteSqlWithRowCount<T>(string sql)
         {
             IDbConnection dbConnection = new SqlConnection(_connectionString);
-            Console.WriteLine("Affect on "+dbConnection.Execute(sql)+" rows");
+            Console.WriteLine("Affect on " + dbConnection.Execute(sql) + " rows");
             return dbConnection.Execute(sql);
         }
     }

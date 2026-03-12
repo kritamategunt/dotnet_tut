@@ -70,3 +70,14 @@
 /Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net8.0/helloWorld.pdb
 /Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net8.0/helloWorld.genruntimeconfig.cache
 /Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/obj/Debug/net8.0/ref/helloWorld.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/Microsoft.Extensions.Configuration.FileExtensions.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Json.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/Microsoft.Extensions.FileProviders.Physical.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/System.IO.Pipelines.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/System.Text.Encodings.Web.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/System.Text.Json.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/Users/kritamatekamheang/Desktop/dotnet-tut/helloWorld/bin/Debug/net8.0/appSetting.json

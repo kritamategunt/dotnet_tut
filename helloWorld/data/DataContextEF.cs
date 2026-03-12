@@ -1,5 +1,6 @@
 using helloWorld.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System;
 
@@ -8,14 +9,19 @@ namespace helloWorld.Data
 
     public class DataContextEF : DbContext
     {
+        private readonly IConfiguration _config;
 
+        public DataContextEF(IConfiguration config)
+        {
+            _config = config;
+        }
         public DbSet<Computer>? Computer { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Only configure the context if it hasn't been configured yet
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=DotNetCourseDatabase;TrustServerCertificate=True;Trusted_Connection=false;User Id=sa;Password=SQLConnect1!;",
+                optionsBuilder.UseSqlServer(_config.GetConnectionString("DefaultConnection"),
                     options => options.EnableRetryOnFailure()
                 );
             }
@@ -28,7 +34,7 @@ namespace helloWorld.Data
             {
                 entity.HasKey(c => c.ComputerId);
                 entity.ToTable("Computer");
-                
+
                 // Configure EF to use property access mode for properties with private setters
                 entity.Property(c => c.ComputerId)
                     .UsePropertyAccessMode(PropertyAccessMode.Property);
