@@ -22,7 +22,7 @@ namespace helloWorld
                 motherboard: "ASUS ROG STRIX B550-F",
                 cpuCores: 8,
                 hasWifi: true,
-                hasLTE: false,
+                hasLTE: 1.0m,
                 releaseDate: new DateTime(2021, 5, 15),
                 price: 1299.99m,
                 videoCard: "NVIDIA GeForce RTX 2060"
@@ -57,10 +57,11 @@ VALUES
 
             string selectSql = "SELECT * FROM TutorAppSchema.Computer";
             IEnumerable<Computer> computers = dapper.LoadData<Computer>(selectSql);
+            //For demonstration, we can also load the computers using Entity Framework to compare results
             IEnumerable<Computer>? computersEF = entityFramework.Computer?.ToList();
 
 
-            Console.WriteLine("Computers in Database:");
+            Console.WriteLine("Computers in Database:"+computersEF?.Count());
             if (computersEF != null)
             {
                 foreach (var computer in computers)

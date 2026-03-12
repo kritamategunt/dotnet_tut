@@ -24,11 +24,31 @@ namespace helloWorld.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("TutorAppSchema");
-            modelBuilder.Entity<Computer>()
-            .HasKey(c => c.ComputerId);
-            //.HasNoKey();
-            //haskey and totable are not needed as we are using dapper for querying
-            //.ToTable("Computer", "TutorAppSchema");
+            modelBuilder.Entity<Computer>(entity =>
+            {
+                entity.HasKey(c => c.ComputerId);
+                entity.ToTable("Computer");
+                
+                // Configure EF to use property access mode for properties with private setters
+                entity.Property(c => c.ComputerId)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.Motherboard)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.CPUCores)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.HasWifi)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.HasLTE)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.ReleaseDate)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.Price)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.VideoCard)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+                entity.Property(c => c.AddingDate)
+                    .UsePropertyAccessMode(PropertyAccessMode.Property);
+            });
         }
         public override int SaveChanges()
         {

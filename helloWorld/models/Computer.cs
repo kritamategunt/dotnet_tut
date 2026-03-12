@@ -3,16 +3,16 @@ namespace helloWorld.Models
     public class Computer
     {
         // 🔑 Required by both EF & Dapper
-        public int ComputerId { get; private set; }
+        public int ComputerId { get; set; }
 
-        public string Motherboard { get; private set; } = "";
-        public int CPUCores { get; private set; }
-        public bool HasWifi { get; private set; }
-        public bool HasLTE { get; private set; }
-        public DateTime ReleaseDate { get; private set; }
-        public decimal Price { get; private set; }
-        public string VideoCard { get; private set; } = "";
-        public DateTime AddingDate { get; private set; }
+        public string Motherboard { get; set; } = "";
+        public int CPUCores { get; set; }
+        public bool HasWifi { get; set; }
+        public decimal HasLTE { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public decimal Price { get; set; }
+        public string VideoCard { get; set; } = "";
+        public DateTime AddingDate { get; set; }
 
         // ✅ REQUIRED for EF + Dapper
         private Computer() { }
@@ -22,7 +22,7 @@ namespace helloWorld.Models
             string motherboard,
             int cpuCores,
             bool hasWifi,
-            bool hasLTE,
+            decimal hasLTE,
             DateTime releaseDate,
             decimal price,
             string videoCard)
